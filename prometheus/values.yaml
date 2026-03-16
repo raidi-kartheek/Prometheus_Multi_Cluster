@@ -1,0 +1,22 @@
+server:
+  global:
+    scrape_interval: 15s
+
+  extraFlags:
+    - web.enable-lifecycle
+
+  service:
+    type: LoadBalancer
+    port: 9090
+
+  externalLabels:
+    cluster: dev-cluster #env-cluster
+
+alertmanager:
+  enabled: false
+
+nodeExporter:
+  enabled: true
+
+kubeStateMetrics:
+  enabled: true
